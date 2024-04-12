@@ -13,5 +13,12 @@
     "include": [
       "src/**/*",
       "test/**/*",
-    ]
+    ],
+
+    // Importar con @
+    "baseUrl": ".",
+    "paths": {
+      "@controllers/*": ["src/controllers/*"],
+      "@context/*": ["src/context/*"],
+    }
   }
