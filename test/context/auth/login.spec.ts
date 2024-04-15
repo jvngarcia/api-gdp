@@ -20,7 +20,14 @@ describe("POST /api/v1/auth", () => {
 	it("should return 200 OK", () => {
 		return request(app)
 			.post("/api/v1/auth/login")
-			.send({ email: "angelgarcaiweb@gmail.com" })
+			.send({ email: "test@gmail.com" })
 			.expect(200);
+	});
+
+	// TODO: how to test the token?
+	it("should successful login", () => {
+		return request(app)
+			.post("/api/v1/auth/login/validation/9b7573f9-44e7-4ec4-be3b-d55341b72f21/373885")
+			.expect(200, { status: "ok", message: "Successful login" });
 	});
 });
