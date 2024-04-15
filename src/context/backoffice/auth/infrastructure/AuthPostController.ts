@@ -12,8 +12,10 @@ export class AuthPostController {
 		this.app = new UserLogin(this.repository);
 	}
 
+	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 	async run(req: Request, res: Response) {
 		return await this.app
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 			.run(req.body.email as string)
 			.then(() => {
 				return res.status(200).send({
