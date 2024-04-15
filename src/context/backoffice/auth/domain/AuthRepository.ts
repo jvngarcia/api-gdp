@@ -1,6 +1,5 @@
-import {User} from "./User";
-import {UserEmail} from "./UserEmail";
+import { User } from "./User";
 
 export interface AuthRepository {
-    findByEmail(user: User): Promise<User | null>;
+	findByEmail(user: User): Promise<User | null>;
 }
