@@ -12,7 +12,7 @@ export class UserEmail {
 	}
 
 	private ensureIsNotNull(): void {
-		if (this.value === null || this.value === "" || this.value === undefined) {
+		if (this.value === "") {
 			throw new Error("Email could not empty");
 		}
 	}
