@@ -18,10 +18,7 @@ describe("POST /api/v1/auth", () => {
 	});
 
 	it("should return 200 OK", () => {
-		return request(app)
-			.post("/api/v1/auth/login")
-			.send({ email: "test@gmail.com" })
-			.expect(200);
+		return request(app).post("/api/v1/auth/login").send({ email: "test@gmail.com" }).expect(200);
 	});
 
 	// TODO: how to test the token?
