@@ -1,3 +1,5 @@
+import { AuthException } from "./AuthException";
+
 export class UserEmail {
 	private readonly value: string;
 
@@ -13,13 +15,13 @@ export class UserEmail {
 
 	private ensureIsNotNull(): void {
 		if (this.value === "") {
-			throw new Error("Email could not empty");
+			throw new AuthException(400, "Email could not empty");
 		}
 	}
 
 	private ensureIsValidEmail(): void {
 		if (!this.value.includes("@")) {
-			throw new Error("Invalid email");
+			throw new AuthException(400, "Invalid email");
 		}
 	}
 }
