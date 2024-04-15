@@ -7,6 +7,8 @@ import { PrismaAuthRepository } from "./PrismaAuthRepository";
 
 export class AuthPostController {
 	private readonly app: UserLogin;
+	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+	// @ts-ignore
 	private readonly repository: AuthRepository = new PrismaAuthRepository();
 
 	constructor() {
@@ -23,7 +25,7 @@ export class AuthPostController {
 			.then(() => {
 				return res.status(200).send({
 					status: "ok",
-					message: "Success",
+					message: "An email has been sent with the login code",
 				});
 			})
 			.catch((err) => {

@@ -1,4 +1,3 @@
-import { AuthException } from "../domain/AuthException";
 import { AuthRepository } from "../domain/AuthRepository";
 import { User } from "../domain/User";
 
@@ -7,14 +6,18 @@ export class UserLogin {
 
 	async run(email: string): Promise<boolean> {
 		const userTemp: User = User.create(email, null, null);
-		const user: User | null = await this.repository.findByEmail(userTemp);
+		let user: User | null = await this.repository.findByEmail(userTemp);
 
 		if (!user) {
-			// TODO: Create user
-			throw new AuthException(404, "User not found");
+			user = await this.repository.save(userTemp);
 		}
 
 		// TODO: send email - domain event with code to access
+
+		// eslint-disable-next-line no-console
+		console.log(user.getEmail());
+		// eslint-disable-next-line no-console
+		console.log(user.getCode());
 
 		return true;
 	}
