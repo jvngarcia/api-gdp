@@ -14,7 +14,7 @@ export class UserEmail {
 	}
 
 	private ensureIsNotNull(): void {
-		if (this.value === "") {
+		if (this.value.trim() === "") {
 			throw new AuthException(400, "Email could not empty");
 		}
 	}
